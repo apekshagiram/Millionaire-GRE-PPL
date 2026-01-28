@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { Pencil, Trash2, Plus } from "lucide-react";
 import { useQuestionsStore } from "@/store/questionsStore";
-import  Sidebar from "@/components/admin/Sidebar";
+// import  Sidebar from "@/components/admin/Sidebar";
 import QuestionBulkUpload from "@/components/admin/QuestionBulkUpload";
 
 export default function QuestionsPage() {
