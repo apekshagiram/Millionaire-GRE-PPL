@@ -21,13 +21,12 @@ export default function EditTestPage() {
   const { id } = useParams();
   const router = useRouter();
   const { questions } = useQuestionsStore();
-  const { testQuestions, addTestQuestion, deleteTestQuestion, setTestQuestions, isQuestionAdded } = useTestQuestionStore();
+  const { testQuestions, addTestQuestion, deleteTestQuestion, setTestQuestions,clearQuestions, isQuestionAdded } = useTestQuestionStore();
   const [testTitle, setTestTitle] = useState("");
   const [published, setPublished] = useState(false);
 
   const { getTestById, updateTest, deleteTest } = useTestsStore();
   const existingTest = getTestById(id);
-
   const handleUpdateTest = () => {
     if (!testTitle) return alert("Enter test title");
     if (testQuestions.length === 0) return alert("Add at least one question");
@@ -38,7 +37,9 @@ export default function EditTestPage() {
       questions: testQuestions,
       published,
     });
-
+    clearQuestions();
+    setTestTitle("");
+    setPublished(false);
     router.push("/admin/tests");
   };
 
